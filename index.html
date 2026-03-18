@@ -181,6 +181,34 @@
     letter-spacing: 0.06em;
     line-height: 1.5;
   }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 28px;
+    background: rgba(154,124,63,0.15);
+    border: 1px solid rgba(154,124,63,0.5);
+    padding: 8px 16px;
+    border-radius: 2px;
+  }
+  .hero-badge-icon {
+    font-size: 11px;
+    color: var(--gold-light);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .hero-badge-text {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.04em;
+  }
+  .hero-badge-text span {
+    font-size: 20px;
+    color: var(--gold-light);
+  }
 
   /* ===== SUBSIDY STRIP ===== */
   .subsidy-strip {
@@ -1138,6 +1166,10 @@
         <div class="hero-stat-num">3</div>
         <div class="hero-stat-label">名限定<br>少人数制</div>
       </div>
+    </div>
+    <div class="hero-badge">
+      <span class="hero-badge-icon">ESTIMATE</span>
+      <span class="hero-badge-text">見積もり <span>29万円</span>以下</span>
     </div>
   </div>
 </section>
