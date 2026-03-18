@@ -438,10 +438,20 @@
   }
   .footer-links a:hover { color: var(--navy); }
 
+  /* スマホ用横型モックアップ */
+  .mobile-mockup {
+    display: none;
+  }
+  .mobile-mockup img {
+    width: 100%;
+    display: block;
+  }
+
   /* ===== RESPONSIVE ===== */
   @media (max-width: 860px) {
     .main { flex-direction: column; margin: 24px auto; }
     .left-panel { flex: none; display: none; }
+    .mobile-mockup { display: block; margin-bottom: 0; }
     .site-header { padding: 0 20px; }
     footer { padding: 16px 20px; }
     .form-header { padding: 24px 24px; }
@@ -469,7 +479,7 @@
   <!-- LEFT PANEL -->
   <aside class="left-panel">
     <div class="mockup-wrap">
-      <img src="program-guide-mockup.png" alt="AI内製化研修 プログラムガイド">
+      <img src="program-guide-mockup-pc.png" alt="AI内製化研修 プログラムガイド">
       <p class="mockup-label">全30ページの詳細資料</p>
     </div>
     <div class="checklist-card">
@@ -501,6 +511,10 @@
 
   <!-- RIGHT PANEL -->
   <div class="right-panel">
+    <!-- スマホ時のみ表示される横型モックアップ -->
+    <div class="mobile-mockup">
+      <img src="program-guide-mockup-horizontal.png" alt="AI内製化研修 プログラムガイド">
+    </div>
     <div class="form-card">
       <div class="form-header">
         <div class="form-header-eyebrow">AI内製化研修 for 経営・事業責任者</div>
@@ -593,7 +607,7 @@
               <input type="tel" class="form-input" id="phone" placeholder="090-0000-0000">
             </div>
             <button type="submit" class="submit-btn">資料をダウンロードする</button>
-            <p class="privacy-note">送信することで<a href="#">プライバシーポリシー</a>に同意したものとみなします。</p>
+            <p class="privacy-note">送信することで<a href="https://seekad.co.jp/privacy">プライバシーポリシー</a>に同意したものとみなします。</p>
           </form>
         </div>
 
@@ -616,7 +630,7 @@
 <footer>
   <span class="footer-copy">AI内製化研修 for 経営・事業責任者 ｜ Produced by SEEKAD</span>
   <div class="footer-links">
-    <a href="#">プライバシーポリシー</a>
+    <a href="https://seekad.co.jp/privacy">プライバシーポリシー</a>
   </div>
 </footer>
 
