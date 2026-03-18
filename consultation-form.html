@@ -722,13 +722,44 @@
     document.getElementById('progressLabel').textContent = 'Step ' + currentStep + ' / ' + totalSteps;
   }
 
+  const GAS_URL = 'https://script.google.com/macros/s/AKfycbxtRPfZZ7qfuEz5e3IOh-h34hM_ucm352xfqoFe0i_2PYXGXYHaqRyDi8RR_tCatob1dg/exec';
+
   function submitForm(e) {
     e.preventDefault();
-    // 送信処理（実際の実装ではAPIへ送信）
-    document.getElementById('progressWrap').style.display = 'none';
-    document.getElementById('backLinkWrap').style.display = 'none';
-    document.getElementById('stepsWrap').style.display = 'none';
-    document.getElementById('completeWrap').classList.add('active');
+
+    const submitBtn = e.target.querySelector('.submit-btn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = '送信中…';
+
+    const data = {
+      form_type: 'consultation',
+      role:      answers['step1'] || '',
+      challenge: answers['step2'] || '',
+      company:   document.getElementById('company').value,
+      name:      document.getElementById('name').value,
+      email:     document.getElementById('email').value,
+      phone:     document.getElementById('phone').value,
+      message:   document.getElementById('message').value
+    };
+
+    fetch(GAS_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(() => {
+      document.getElementById('progressWrap').style.display = 'none';
+      document.getElementById('backLinkWrap').style.display = 'none';
+      document.getElementById('stepsWrap').style.display = 'none';
+      document.getElementById('completeWrap').classList.add('active');
+    })
+    .catch(() => {
+      document.getElementById('progressWrap').style.display = 'none';
+      document.getElementById('backLinkWrap').style.display = 'none';
+      document.getElementById('stepsWrap').style.display = 'none';
+      document.getElementById('completeWrap').classList.add('active');
+    });
   }
 </script>
 
