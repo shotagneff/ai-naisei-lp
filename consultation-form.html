@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>無料相談のお申し込み | AI内製化研修 for 経営・事業責任者</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:       #1a1714;
+    --ink-mid:   #3d3832;
+    --ink-light: #6b6560;
+    --ink-faint: #9e9890;
+    --cream:     #f9f7f4;
+    --cream-mid: #f0ece6;
+    --cream-dark:#e4ddd4;
+    --rule:      #d6cfc6;
+    --navy:      #0f1c2e;
+    --navy-mid:  #1c2f47;
+    --navy-light:#2b4668;
+    --gold:      #9a7c3f;
+    --gold-light:#c4a55a;
+    --white:     #ffffff;
+    --serif: "Noto Serif JP", "游明朝", Georgia, serif;
+    --sans:  "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--cream);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== HEADER ===== */
+  .site-header {
+    background: var(--white);
+    border-bottom: 1px solid var(--rule);
+    padding: 0 40px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+  }
+  .header-logo {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .header-logo-main {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.04em;
+    line-height: 1;
+  }
+  .header-logo-sub {
+    font-size: 10px;
+    color: var(--ink-faint);
+    letter-spacing: 0.1em;
+    line-height: 1;
+  }
+  .header-back {
+    font-size: 12px;
+    color: var(--ink-faint);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+  .header-back:hover { color: var(--navy); }
+
+  /* ===== MAIN ===== */
+  .main {
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+    max-width: 1100px;
+    margin: 48px auto;
+    width: 100%;
+    padding: 0 24px;
+    gap: 40px;
+  }
+
+  /* ===== LEFT PANEL ===== */
+  .left-panel {
+    flex: 0 0 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .info-card {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    overflow: hidden;
+  }
+  .info-card-header {
+    background: var(--navy);
+    color: var(--white);
+    padding: 18px 24px;
+    border-bottom: 2px solid var(--gold);
+  }
+  .info-card-header h3 {
+    font-family: var(--serif);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .info-card-body { padding: 24px; }
+
+  .benefit-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+  .benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--cream-mid);
+  }
+  .benefit-item:last-child { border-bottom: none; }
+  .benefit-num {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    background: var(--navy);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+  .benefit-item p {
+    font-size: 13px;
+    color: var(--ink-mid);
+    line-height: 1.7;
+  }
+
+  .overview-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .overview-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--cream-mid);
+  }
+  .overview-row:last-child { border-bottom: none; }
+  .overview-icon {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+  }
+  .overview-row-content {}
+  .overview-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 2px;
+  }
+  .overview-value {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .trust-note {
+    background: var(--navy);
+    color: var(--white);
+    padding: 20px 24px;
+    font-family: var(--serif);
+    font-size: 14px;
+    line-height: 1.8;
+    border-left: 3px solid var(--gold);
+  }
+
+  /* ===== RIGHT PANEL ===== */
+  .right-panel {
+    flex: 1;
+    min-width: 0;
+  }
+  .form-card {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    overflow: hidden;
+  }
+  .form-header {
+    background: var(--navy);
+    color: var(--white);
+    padding: 32px 36px;
+    border-bottom: 2px solid var(--gold);
+  }
+  .form-header-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 8px;
+  }
+  .form-header h1 {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 900;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+  .form-header p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.04em;
+  }
+
+  /* ===== PROGRESS ===== */
+  .progress-wrap {
+    padding: 20px 36px 0;
+    background: var(--white);
+  }
+  .progress-bar-track {
+    height: 3px;
+    background: var(--cream-mid);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: var(--gold);
+    transition: width 0.4s ease;
+    border-radius: 2px;
+  }
+  .progress-label {
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 0.08em;
+    text-align: right;
+  }
+
+  /* ===== STEPS ===== */
+  .steps-wrap { padding: 28px 36px 36px; }
+
+  .step { display: none; }
+  .step.active { display: block; }
+
+  .step-title {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .choice-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .choice-btn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    background: var(--cream);
+    border: 1.5px solid var(--rule);
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--ink-mid);
+    font-family: var(--sans);
+    text-align: left;
+    transition: all 0.18s;
+    width: 100%;
+    font-weight: 500;
+  }
+  .choice-btn:hover {
+    border-color: var(--navy);
+    background: var(--white);
+    color: var(--navy);
+  }
+  .choice-btn:hover .choice-num { background: var(--navy); color: var(--white); }
+  .choice-num {
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    background: var(--white);
+    border: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--ink-faint);
+    transition: all 0.18s;
+  }
+
+  /* ===== STEP 3 FORM ===== */
+  .contact-form { display: flex; flex-direction: column; gap: 16px; }
+  .form-field { display: flex; flex-direction: column; gap: 6px; }
+  .form-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.06em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .required-badge {
+    font-size: 10px;
+    background: var(--navy);
+    color: var(--white);
+    padding: 1px 6px;
+    letter-spacing: 0.04em;
+  }
+  .optional-badge {
+    font-size: 10px;
+    background: var(--cream-dark);
+    color: var(--ink-faint);
+    padding: 1px 6px;
+    letter-spacing: 0.04em;
+  }
+  .form-input {
+    padding: 12px 14px;
+    border: 1.5px solid var(--rule);
+    background: var(--cream);
+    font-size: 14px;
+    font-family: var(--sans);
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+    border-radius: 0;
+  }
+  .form-input:focus { border-color: var(--navy); background: var(--white); }
+  .form-input::placeholder { color: var(--ink-faint); }
+  .form-textarea {
+    padding: 12px 14px;
+    border: 1.5px solid var(--rule);
+    background: var(--cream);
+    font-size: 14px;
+    font-family: var(--sans);
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s;
+    resize: vertical;
+    min-height: 100px;
+    border-radius: 0;
+  }
+  .form-textarea:focus { border-color: var(--navy); background: var(--white); }
+  .form-textarea::placeholder { color: var(--ink-faint); }
+
+  .submit-btn {
+    display: block;
+    width: 100%;
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+    padding: 16px;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: var(--sans);
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 8px;
+  }
+  .submit-btn:hover { background: var(--navy-mid); }
+
+  .privacy-note {
+    font-size: 11px;
+    color: var(--ink-faint);
+    line-height: 1.8;
+    margin-top: 4px;
+    text-align: center;
+  }
+  .privacy-note a { color: var(--ink-faint); }
+
+  /* ===== BACK LINK ===== */
+  .back-link-wrap {
+    padding: 0 36px 8px;
+  }
+  .back-link {
+    font-size: 12px;
+    color: var(--ink-faint);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: color 0.2s;
+    background: none;
+    border: none;
+    font-family: var(--sans);
+    padding: 0;
+  }
+  .back-link:hover { color: var(--navy); }
+
+  /* ===== COMPLETE ===== */
+  .complete-wrap {
+    display: none;
+    padding: 64px 36px;
+    text-align: center;
+  }
+  .complete-wrap.active { display: block; }
+  .complete-icon {
+    font-size: 48px;
+    margin-bottom: 24px;
+    display: block;
+  }
+  .complete-title {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  .complete-body {
+    font-size: 14px;
+    color: var(--ink-light);
+    line-height: 2;
+    margin-bottom: 32px;
+  }
+  .complete-body strong { color: var(--navy); font-weight: 700; }
+  .complete-link {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--white);
+    text-decoration: none;
+    padding: 14px 36px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    transition: background 0.2s;
+  }
+  .complete-link:hover { background: var(--navy-mid); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--white);
+    border-top: 1px solid var(--rule);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+  .footer-copy {
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 0.06em;
+  }
+  .footer-links {
+    display: flex;
+    gap: 20px;
+  }
+  .footer-links a {
+    font-size: 11px;
+    color: var(--ink-faint);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--navy); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 860px) {
+    .main { flex-direction: column; margin: 24px auto; }
+    .left-panel { flex: none; display: none; }
+    .site-header { padding: 0 20px; }
+    footer { padding: 16px 20px; }
+    .form-header { padding: 24px 24px; }
+    .progress-wrap { padding: 16px 24px 0; }
+    .steps-wrap { padding: 24px 24px 28px; }
+    .back-link-wrap { padding: 0 24px 4px; }
+    .complete-wrap { padding: 48px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a href="index.html" class="header-logo">
+    <span class="header-logo-main">AI内製化研修</span>
+    <span class="header-logo-sub">for 経営・事業責任者 ｜ Produced by SEEKAD</span>
+  </a>
+  <a href="index.html" class="header-back">← トップページに戻る</a>
+</header>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- LEFT PANEL -->
+  <aside class="left-panel">
+
+    <!-- カード1：無料相談でわかること -->
+    <div class="info-card">
+      <div class="info-card-header">
+        <h3>無料相談でわかること</h3>
+      </div>
+      <div class="info-card-body">
+        <ul class="benefit-list">
+          <li class="benefit-item">
+            <span class="benefit-num">1</span>
+            <p>貴社の経営課題に最適なコースのご提案</p>
+          </li>
+          <li class="benefit-item">
+            <span class="benefit-num">2</span>
+            <p>助成金（最大75%）の適用可否の確認</p>
+          </li>
+          <li class="benefit-item">
+            <span class="benefit-num">3</span>
+            <p>研修で具体的に何が実現できるかのシミュレーション</p>
+          </li>
+          <li class="benefit-item">
+            <span class="benefit-num">4</span>
+            <p>スケジュール・実施形式のご相談</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- カード2：相談の概要 -->
+    <div class="info-card">
+      <div class="info-card-header">
+        <h3>相談の概要</h3>
+      </div>
+      <div class="info-card-body">
+        <div class="overview-grid">
+          <div class="overview-row">
+            <div class="overview-icon">⏱</div>
+            <div class="overview-row-content">
+              <div class="overview-label">Duration</div>
+              <div class="overview-value">約30分</div>
+            </div>
+          </div>
+          <div class="overview-row">
+            <div class="overview-icon">💻</div>
+            <div class="overview-row-content">
+              <div class="overview-label">Format</div>
+              <div class="overview-value">オンライン（Zoom）</div>
+            </div>
+          </div>
+          <div class="overview-row">
+            <div class="overview-icon">✓</div>
+            <div class="overview-row-content">
+              <div class="overview-label">Cost</div>
+              <div class="overview-value">完全無料</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 信頼メッセージ -->
+    <div class="trust-note">
+      強引な勧誘は一切いたしません。<br>まずはお気軽にご相談ください。
+    </div>
+
+  </aside>
+
+  <!-- RIGHT PANEL -->
+  <div class="right-panel">
+    <div class="form-card">
+      <div class="form-header">
+        <div class="form-header-eyebrow">AI内製化研修 for 経営・事業責任者</div>
+        <h1>無料相談の<br>お申し込み</h1>
+        <p>3つの質問に答えるだけ（1分）</p>
+      </div>
+
+      <!-- PROGRESS -->
+      <div class="progress-wrap" id="progressWrap">
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" id="progressFill" style="width:33.3%"></div>
+        </div>
+        <div class="progress-label" id="progressLabel">Step 1 / 3</div>
+      </div>
+
+      <!-- BACK LINK -->
+      <div class="back-link-wrap" id="backLinkWrap" style="padding-top:12px; display:none;">
+        <button class="back-link" onclick="goBack()">← 前の質問に戻る</button>
+      </div>
+
+      <!-- STEPS -->
+      <div class="steps-wrap" id="stepsWrap">
+
+        <!-- STEP 1 -->
+        <div class="step active" id="step1">
+          <div class="step-title">あなたの役職を教えてください</div>
+          <div class="choice-grid">
+            <button class="choice-btn" onclick="nextStep(1,'経営者・代表取締役')"><span class="choice-num">A</span>経営者・代表取締役</button>
+            <button class="choice-btn" onclick="nextStep(1,'役員・取締役')"><span class="choice-num">B</span>役員・取締役</button>
+            <button class="choice-btn" onclick="nextStep(1,'事業責任者・部長')"><span class="choice-num">C</span>事業責任者・部長</button>
+            <button class="choice-btn" onclick="nextStep(1,'マネージャー・課長')"><span class="choice-num">D</span>マネージャー・課長</button>
+            <button class="choice-btn" onclick="nextStep(1,'その他')"><span class="choice-num">E</span>その他</button>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="step" id="step2">
+          <div class="step-title">今、一番解決したい経営課題は？</div>
+          <div class="choice-grid">
+            <button class="choice-btn" onclick="nextStep(2,'固定費・コスト構造の見直し')"><span class="choice-num">A</span>固定費・コスト構造の見直し</button>
+            <button class="choice-btn" onclick="nextStep(2,'業務の属人化・仕組み化')"><span class="choice-num">B</span>業務の属人化・仕組み化</button>
+            <button class="choice-btn" onclick="nextStep(2,'意思決定のスピード・精度')"><span class="choice-num">C</span>意思決定のスピード・精度</button>
+            <button class="choice-btn" onclick="nextStep(2,'自社サービスの強化・USP')"><span class="choice-num">D</span>自社サービスの強化・USP</button>
+            <button class="choice-btn" onclick="nextStep(2,'リード獲得・マーケティング')"><span class="choice-num">E</span>リード獲得・マーケティング</button>
+            <button class="choice-btn" onclick="nextStep(2,'その他')"><span class="choice-num">F</span>その他</button>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="step" id="step3">
+          <div class="step-title">連絡先をご入力ください</div>
+          <form class="contact-form" onsubmit="submitForm(event)">
+            <div class="form-field">
+              <label class="form-label">会社名 <span class="required-badge">必須</span></label>
+              <input type="text" class="form-input" id="company" placeholder="株式会社〇〇" required>
+            </div>
+            <div class="form-field">
+              <label class="form-label">お名前 <span class="required-badge">必須</span></label>
+              <input type="text" class="form-input" id="name" placeholder="山田 太郎" required>
+            </div>
+            <div class="form-field">
+              <label class="form-label">メールアドレス <span class="required-badge">必須</span></label>
+              <input type="email" class="form-input" id="email" placeholder="taro@example.com" required>
+            </div>
+            <div class="form-field">
+              <label class="form-label">電話番号 <span class="required-badge">必須</span></label>
+              <input type="tel" class="form-input" id="phone" placeholder="090-0000-0000" required>
+            </div>
+            <div class="form-field">
+              <label class="form-label">ご相談内容 <span class="optional-badge">任意</span></label>
+              <textarea class="form-textarea" id="message" placeholder="気になっていることやご質問があればご記入ください"></textarea>
+            </div>
+            <button type="submit" class="submit-btn">無料相談を申し込む</button>
+            <p class="privacy-note">送信することで<a href="#">プライバシーポリシー</a>に同意したものとみなします。</p>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- COMPLETE -->
+      <div class="complete-wrap" id="completeWrap">
+        <span class="complete-icon">✉️</span>
+        <div class="complete-title">お申し込みありがとうございます</div>
+        <p class="complete-body">
+          ご入力いただいたメールアドレス宛に、<br>
+          担当者より<strong>1営業日以内</strong>にご連絡いたします。<br><br>
+          日程調整のご連絡をお送りしますので、<br>しばらくお待ちください。
+        </p>
+        <a href="index.html" class="complete-link">AI内製化研修 トップページへ →</a>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-copy">AI内製化研修 for 経営・事業責任者 ｜ Produced by SEEKAD</span>
+  <div class="footer-links">
+    <a href="#">プライバシーポリシー</a>
+  </div>
+</footer>
+
+<script>
+  let currentStep = 1;
+  const totalSteps = 3;
+  const answers = {};
+
+  function nextStep(fromStep, value) {
+    answers['step' + fromStep] = value;
+    const next = fromStep + 1;
+    document.getElementById('step' + fromStep).classList.remove('active');
+    document.getElementById('step' + next).classList.add('active');
+    currentStep = next;
+    updateProgress();
+    document.getElementById('backLinkWrap').style.display = 'block';
+  }
+
+  function goBack() {
+    if (currentStep <= 1) return;
+    document.getElementById('step' + currentStep).classList.remove('active');
+    currentStep--;
+    document.getElementById('step' + currentStep).classList.add('active');
+    updateProgress();
+    if (currentStep === 1) {
+      document.getElementById('backLinkWrap').style.display = 'none';
+    }
+  }
+
+  function updateProgress() {
+    const pct = (currentStep / totalSteps) * 100;
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressLabel').textContent = 'Step ' + currentStep + ' / ' + totalSteps;
+  }
+
+  function submitForm(e) {
+    e.preventDefault();
+    // 送信処理（実際の実装ではAPIへ送信）
+    document.getElementById('progressWrap').style.display = 'none';
+    document.getElementById('backLinkWrap').style.display = 'none';
+    document.getElementById('stepsWrap').style.display = 'none';
+    document.getElementById('completeWrap').classList.add('active');
+  }
+</script>
+
+</body>
+</html>
